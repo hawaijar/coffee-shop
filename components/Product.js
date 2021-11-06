@@ -1,18 +1,37 @@
 import React from "react";
 import {
+  Badge,
   Button,
   Card,
   CardActionArea,
   CardActions,
   CardContent,
+  CardHeader,
   CardMedia,
+  IconButton,
   Typography,
 } from "@mui/material";
+import NextLink from "next/link";
 
 const Product = ({ product }) => {
+  const discount = product.discount;
   return (
-    <div>
+    <NextLink href={`/product/${product.slug}`} passHref>
       <Card>
+        <CardHeader
+          action={
+            <div>
+              {discount > 0 && (
+                <Badge badgeContent={`-${discount}%`} color="secondary">
+                  {" "}
+                </Badge>
+              )}
+              <IconButton aria-label="settings"></IconButton>
+            </div>
+          }
+          title="Shrimp"
+          subheader="September 14, 2016"
+        />
         <CardActionArea>
           <CardMedia
             component="img"
@@ -32,7 +51,7 @@ const Product = ({ product }) => {
           </Button>
         </CardActions>
       </Card>
-    </div>
+    </NextLink>
   );
 };
 

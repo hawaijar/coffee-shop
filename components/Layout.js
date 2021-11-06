@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
               </Typography>
             </Link>
           </NextLink>
-          <div className={classes.flexGrow} />
+          <div className={"flex-grow"} />
           <div>
             <NextLink href="/cart" passHref>
               <Link className={`hover:underline`}>Cart</Link>
