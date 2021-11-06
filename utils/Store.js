@@ -4,7 +4,9 @@ import { createContext, useReducer } from "react";
 export const Store = createContext();
 const initialState = {
   cart: {
-    cartItems: {},
+    cartItems: Cookies.get("cartItems")
+      ? JSON.parse(Cookies.get("cartItems"))
+      : {},
   },
 };
 
