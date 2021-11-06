@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import { AppBar, Container, Toolbar, Typography } from "@mui/material";
+import NextLink from "next/link";
+import { AppBar, Container, Link, Toolbar, Typography } from "@mui/material";
 import useStyles from "../utils/styles";
 
 const Layout = ({ children }) => {
@@ -10,9 +11,27 @@ const Layout = ({ children }) => {
       <Head>
         <title>My Barista</title>
       </Head>
-      <AppBar position="static" className={"bg-gray-700 cursor-pointer "}>
+      <AppBar
+        position="static"
+        className={`${classes.navbar} bg-gray-700 cursor-pointer `}
+      >
         <Toolbar>
-          <Typography>My Starbucks</Typography>
+          <NextLink href="/" passHref>
+            <Link>
+              <Typography className={`${classes.header} hover:underline`}>
+                My Starbucks
+              </Typography>
+            </Link>
+          </NextLink>
+          <div className={classes.flexGrow} />
+          <div>
+            <NextLink href="/cart" passHref>
+              <Link className={`hover:underline`}>Cart</Link>
+            </NextLink>
+            <NextLink href="/login" passHref>
+              <Link className={`hover:underline`}>Login</Link>
+            </NextLink>
+          </div>
         </Toolbar>
       </AppBar>
       <Container className={classes.container}>{children}</Container>

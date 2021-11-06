@@ -15,7 +15,9 @@ export default function Home() {
   return (
     <Layout>
       <div>
-        <h1>Products</h1>
+        <Typography variant="h2" className={"my-5"}>
+          Products
+        </Typography>
         <Grid container spacing={3}>
           {data.products.map((product) => (
             <Grid item md={4} key={product.name}>
