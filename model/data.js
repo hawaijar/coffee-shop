@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      id: 1,
       name: "Espresso",
       category: "HOT CLASSICS",
       image: "/images/espresso.jpeg",
@@ -13,6 +14,7 @@ const data = {
       discount: 15,
     },
     {
+      id: 2,
       name: "Affogato",
       category: "HOT CLASSICS",
       image: "/images/AFFOGATO.jpeg",
@@ -25,6 +27,7 @@ const data = {
       discount: 10,
     },
     {
+      id: 3,
       name: "Cappuccino",
       category: "HOT CLASSICS",
       image: "/images/cappacino.jpeg",
@@ -37,6 +40,7 @@ const data = {
       discount: 5,
     },
     {
+      id: 4,
       name: "Café Latte",
       category: "HOT CLASSICS",
       image: "/images/cafe-latte.jpeg",
@@ -49,6 +53,7 @@ const data = {
       discount: 0,
     },
     {
+      id: 5,
       name: "Barista",
       category: "COLD CLASSICS",
       image: "/images/barista.jpeg",
@@ -61,6 +66,7 @@ const data = {
       discount: 0,
     },
     {
+      id: 6,
       name: "Iced Americano",
       category: "COLD CLASSICS",
       image: "/images/iced-americano.jpeg",
@@ -73,6 +79,7 @@ const data = {
       discount: 10,
     },
     {
+      id: 7,
       name: "Smoothies",
       category: "COLD CLASSICS",
       image: "/images/smoothie.png",
@@ -85,6 +92,7 @@ const data = {
       discount: 0,
     },
     {
+      id: 8,
       name: "Ginger Honey",
       category: "TEA",
       image: "/images/ginger-honey.png",
@@ -97,6 +105,7 @@ const data = {
       discount: 3,
     },
     {
+      id: 9,
       name: "Green Tea",
       category: "TEA",
       image: "/images/green-tea.jpeg",
@@ -109,6 +118,7 @@ const data = {
       discount: 0.8,
     },
     {
+      id: 10,
       name: "Assam Tea",
       category: "TEA",
       image: "/images/assam-tea.jpeg",
@@ -121,6 +131,7 @@ const data = {
       discount: 0,
     },
     {
+      id: 11,
       name: "Jamun Banta",
       category: "MOJITOS / LEMONADES",
       image: "/images/jamun-banta.jpeg",
@@ -133,6 +144,7 @@ const data = {
       discount: 0,
     },
     {
+      id: 12,
       name: "Fizzy Lemon Grass",
       category: "MOJITOS / LEMONADES",
       image: "/images/ginger-lemongrass.jpeg",
@@ -145,6 +157,7 @@ const data = {
       discount: 20,
     },
     {
+      id: 13,
       name: "Green Apple Lemonade",
       category: "MOJITOS / LEMONADES",
       image: "/images/green-apple-lemonade.png",
@@ -157,6 +170,7 @@ const data = {
       discount: 25,
     },
     {
+      id: 14,
       name: "Classic Mojito",
       category: "MOJITOS / LEMONADES",
       image: "/images/classic-mojito.jpeg",
@@ -169,6 +183,7 @@ const data = {
       discount: 20,
     },
     {
+      id: 15,
       name: "Peach Iced Tea",
       category: "ICED TEAS",
       image: "/images/peach-ice-tea.png",
@@ -181,6 +196,7 @@ const data = {
       discount: 15,
     },
     {
+      id: 16,
       name: "Lemon Iced Tea",
       category: "ICED TEAS",
       image: "/images/lemon-ice-tea.jpeg",
@@ -193,6 +209,7 @@ const data = {
       discount: 30,
     },
     {
+      id: 17,
       name: "Bread & Cappucino",
       category: "COMBO",
       image: "/images/bread-capucino.jpg",
@@ -205,6 +222,7 @@ const data = {
       discount: 20,
     },
     {
+      id: 18,
       name: "Bread",
       category: "BREAD",
       image: "/images/bread.jpeg",
@@ -217,6 +235,7 @@ const data = {
       discount: 0,
     },
     {
+      id: 19,
       name: "Scrambled Egg",
       category: "BREAD",
       image: "/images/scrambled-egg.jpg",
@@ -229,6 +248,7 @@ const data = {
       discount: 0,
     },
     {
+      id: 20,
       name: "Bread & Scrambled Egg",
       category: "COMBO",
       image: "/images/bread-scrambled-egg.jpg",

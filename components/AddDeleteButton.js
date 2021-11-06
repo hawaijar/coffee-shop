@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Badge, Button, ButtonGroup } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import { Store } from "../utils/Store";
 
-const AddDeleteButton = ({ itemCount, setItemCount }) => {
+const AddDeleteButton = ({ itemCount, setItemCount, product }) => {
+  const { dispatch } = useContext(Store);
   return (
     <div>
       <ButtonGroup
@@ -15,6 +17,10 @@ const AddDeleteButton = ({ itemCount, setItemCount }) => {
         <Button
           onClick={() => {
             setItemCount(Math.max(itemCount - 1, 0));
+            dispatch({
+              type: "CART_REMOVE_ITEM",
+              payload: { ...product },
+            });
           }}
         >
           {" "}
@@ -24,6 +30,10 @@ const AddDeleteButton = ({ itemCount, setItemCount }) => {
         <Button
           onClick={() => {
             setItemCount(itemCount + 1);
+            dispatch({
+              type: "CART_ADD_ITEM",
+              payload: { ...product },
+            });
           }}
         >
           {" "}

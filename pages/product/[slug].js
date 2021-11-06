@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import data from "../../model/data";
 import Layout from "../../components/Layout";
@@ -16,16 +16,26 @@ import {
 } from "@mui/material";
 import useStyles from "../../utils/styles";
 import AddDeleteButton from "../../components/AddDeleteButton";
+import { Store } from "../../utils/Store";
 
 export default function ProductScreen() {
   const [itemCount, setItemCount] = useState(0);
+  const { state } = useContext(Store);
+  const { cart } = state;
+  const { cartItems } = cart;
   const classes = useStyles();
   const router = useRouter();
   const { slug } = router.query;
   const product = data.products.find((a) => a.slug === slug);
 
+  const alreadyAddedCount = product ? cartItems[product.id] : 0;
+
+  const { dispatch } = useContext(Store);
+
   const onClickCartHandler = () => {
     setItemCount(itemCount + 1);
+    console.log("product:", product);
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity: 1 } });
   };
 
   if (!product) {
@@ -110,7 +120,7 @@ export default function ProductScreen() {
                 </Grid>
               </ListItem>
               <ListItem>
-                {itemCount === 0 ? (
+                {!alreadyAddedCount ? (
                   <Button
                     onClick={onClickCartHandler}
                     fullWidth
@@ -121,8 +131,9 @@ export default function ProductScreen() {
                   </Button>
                 ) : (
                   <AddDeleteButton
-                    itemCount={itemCount}
+                    itemCount={alreadyAddedCount}
                     setItemCount={setItemCount}
+                    product={product}
                   />
                 )}
               </ListItem>

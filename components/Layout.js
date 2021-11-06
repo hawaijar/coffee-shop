@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Store } from "../utils/Store";
+import Cookies from "js-cookie";
 import Head from "next/head";
 import NextLink from "next/link";
 import {
@@ -8,12 +10,18 @@ import {
   Link,
   Toolbar,
   Typography,
+  Badge,
 } from "@mui/material";
 import useStyles from "../utils/styles";
 import { green, purple } from "@mui/material/colors";
 import { ThemeProvider } from "@emotion/react";
 
 const Layout = ({ children }) => {
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
+  const { cartItems } = cart;
+  console.log(cart);
+  console.log("state:", state);
   const theme = createTheme({
     palette: {
       primary: {
@@ -26,6 +34,8 @@ const Layout = ({ children }) => {
   });
 
   const classes = useStyles();
+
+  const totalItems = Object.values(cartItems).reduce((a, b) => a + b, 0);
   return (
     <div>
       <Head>
@@ -45,9 +55,17 @@ const Layout = ({ children }) => {
               </Link>
             </NextLink>
             <div className={"flex-grow"} />
-            <div>
+            <div className={"flex items-center"}>
               <NextLink href="/cart" passHref>
-                <Link className={`hover:underline`}>Cart</Link>
+                <Link>
+                  {Object.keys(cartItems).length > 0 ? (
+                    <Badge color="secondary" badgeContent={totalItems}>
+                      {"Cart"}
+                    </Badge>
+                  ) : (
+                    "Cart"
+                  )}
+                </Link>
               </NextLink>
               <NextLink href="/login" passHref>
                 <Link className={`hover:underline`}>Login</Link>
