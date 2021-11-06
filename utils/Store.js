@@ -40,6 +40,15 @@ function reducer(state, action) {
       Cookies.set("cartItems", JSON.stringify(cartItems));
       return { ...state, cart: { ...state.cart, cartItems } };
     }
+    case "CART_REMOVE_TYPE": {
+      const { id } = action.payload;
+      let cartItems = state.cart.cartItems;
+      if (id in cartItems) {
+        delete cartItems[id];
+      }
+      Cookies.set("cartItems", JSON.stringify(cartItems));
+      return { ...state, cart: { ...state.cart, cartItems } };
+    }
     default:
       return state;
   }

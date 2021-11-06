@@ -220,6 +220,7 @@ const data = {
       description: "Great espresso drink",
       slug: "bread-cappucino",
       discount: 20,
+      items: [3, 18],
     },
     {
       id: 18,
@@ -258,8 +259,13 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "bread",
-      discount: 10,
+      discount: 30,
+      items: [18, 19],
     },
   ],
+  combos: {
+    20: [18, 19],
+    17: [3, 18],
+  },
 };
 export default data;
