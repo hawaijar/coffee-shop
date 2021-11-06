@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import data from "../../model/data";
 import Layout from "../../components/Layout";
@@ -11,15 +11,23 @@ import {
   Link,
   List,
   ListItem,
+  Rating,
   Typography,
 } from "@mui/material";
 import useStyles from "../../utils/styles";
+import AddDeleteButton from "../../components/AddDeleteButton";
 
 export default function ProductScreen() {
+  const [itemCount, setItemCount] = useState(0);
   const classes = useStyles();
   const router = useRouter();
   const { slug } = router.query;
   const product = data.products.find((a) => a.slug === slug);
+
+  const onClickCartHandler = () => {
+    setItemCount(itemCount + 1);
+  };
+
   if (!product) {
     return <div>Product Not Found</div>;
   }
@@ -64,10 +72,12 @@ export default function ProductScreen() {
                   : "No discount"}
               </Typography>
             </ListItem>
-            <ListItem>
-              <Typography>
-                Rating: {product.rating} stars ({product.numReviews} reviews)
+            <ListItem className={"flex items-center"}>
+              <Typography>Rating: </Typography>
+              <Typography className={"mt-1"}>
+                <Rating name="read-only" value={product.rating} readOnly />
               </Typography>
+              <Typography>({product.numReviews} reviews)</Typography>
             </ListItem>
             <ListItem>
               <Typography> Description: {product.description}</Typography>
@@ -100,9 +110,21 @@ export default function ProductScreen() {
                 </Grid>
               </ListItem>
               <ListItem>
-                <Button fullWidth variant="contained" color="primary">
-                  Add to cart
-                </Button>
+                {itemCount === 0 ? (
+                  <Button
+                    onClick={onClickCartHandler}
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                  >
+                    Add to cart
+                  </Button>
+                ) : (
+                  <AddDeleteButton
+                    itemCount={itemCount}
+                    setItemCount={setItemCount}
+                  />
+                )}
               </ListItem>
             </List>
           </Card>

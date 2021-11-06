@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import NextLink from "next/link";
+import AddDeleteButton from "./AddDeleteButton";
 
 const Product = ({ product }) => {
   const discount = product.discount;
