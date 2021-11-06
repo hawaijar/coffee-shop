@@ -36,7 +36,9 @@ const Layout = ({ children }) => {
       </AppBar>
       <Container className={classes.container}>{children}</Container>
       <footer>
-        <Typography>All rights reserved. My starbucks</Typography>
+        <Typography>
+          All rights reserved. My starbucks (hawaijar.js@gmail.com)
+        </Typography>
       </footer>
     </div>
   );

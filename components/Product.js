@@ -15,6 +15,27 @@ import NextLink from "next/link";
 
 const Product = ({ product }) => {
   const discount = product.discount;
+
+  const getPrice = () => {
+    let actualPrice = product.price;
+    let discountedPrice;
+    if (product.discount > 0) {
+      discountedPrice = actualPrice - (actualPrice * product.discount) / 100;
+      discountedPrice = discountedPrice.toFixed(2);
+    }
+    if (product.discount === 0) {
+      return <Typography>${product.price}</Typography>;
+    }
+    return (
+      <div className={"flex"}>
+        <Typography className={"line-through text-gray-500"}>
+          ${product.price}
+        </Typography>
+        <Typography className={"pl-1.5"}>${discountedPrice}</Typography>
+      </div>
+    );
+  };
+
   return (
     <NextLink href={`/product/${product.slug}`} passHref>
       <Card>
@@ -29,7 +50,7 @@ const Product = ({ product }) => {
               <IconButton aria-label="settings"></IconButton>
             </div>
           }
-          title="Shrimp"
+          title={product.name}
           subheader="September 14, 2016"
         />
         <CardActionArea>
@@ -45,8 +66,8 @@ const Product = ({ product }) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Typography>${product.price}</Typography>
-          <Button size="small" color="primary">
+          {getPrice()}
+          <Button size="small" color="primary" className={"pl-2"}>
             Add to cart
           </Button>
         </CardActions>
