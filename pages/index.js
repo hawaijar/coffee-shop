@@ -4,11 +4,11 @@ import { Grid } from "@mui/material";
 import Product from "../components/Product";
 import Header from "../components/Header";
 
-export default function Home() {
+export default function Home({ products }) {
   const getProducts = () => {
     return (
       <Grid container spacing={3}>
-        {data.products.map((product) => (
+        {products.map((product) => (
           <Grid item md={4} key={product.name}>
             <Product product={product} />
           </Grid>
@@ -27,4 +27,13 @@ export default function Home() {
       </div>
     </Layout>
   );
+}
+export async function getServerSideProps() {
+  const data = await fetch("http://localhost:3000/api/products");
+  const products = await data.json();
+  return {
+    props: {
+      products: products,
+    },
+  };
 }
