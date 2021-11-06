@@ -10,7 +10,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "espresso",
-      discount: 1.5,
+      discount: 15,
     },
     {
       name: "Affogato",
@@ -22,7 +22,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "Affogato",
-      discount: 0.5,
+      discount: 10,
     },
     {
       name: "Cappuccino",
@@ -34,7 +34,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "hot-classics",
-      discount: 2.5,
+      discount: 5,
     },
     {
       name: "Café Latte",
@@ -70,7 +70,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "iced-americano",
-      discount: 1,
+      discount: 10,
     },
     {
       name: "Smoothies",
@@ -94,7 +94,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "ginger-honey",
-      discount: 0.75,
+      discount: 3,
     },
     {
       name: "Green Tea",
@@ -142,7 +142,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "fizzy-lemongrass",
-      discount: 0.5,
+      discount: 20,
     },
     {
       name: "Green Apple Lemonade",
@@ -154,7 +154,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "green-apple-lemonade",
-      discount: 0.5,
+      discount: 25,
     },
     {
       name: "Classic Mojito",
@@ -166,7 +166,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "classic-mojito",
-      discount: 1.5,
+      discount: 20,
     },
     {
       name: "Peach Iced Tea",
@@ -178,7 +178,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "peach-ice-tea",
-      discount: 0.75,
+      discount: 15,
     },
     {
       name: "Lemon Iced Tea",
@@ -190,7 +190,7 @@ const data = {
       countInStock: 20,
       description: "Great espresso drink",
       slug: "lemon-ice-tea",
-      discount: 0.3,
+      discount: 30,
     },
     {
       name: "Bread & Cappucino",
@@ -230,7 +230,7 @@ const data = {
     },
     {
       name: "Bread & Scrambled Egg",
-      category: "BREAD",
+      category: "COMBO",
       image: "/images/bread-scrambled-egg.jpg",
       price: 5,
       rating: 4.5,
