@@ -23,7 +23,7 @@ const data = {
       description: "A popular shirt",
     },
     {
-      name: "HOT CLASSICS",
+      name: "Hot Classics",
       category: "CAPPUCCINO",
       image: "/images/cappacino.jpeg",
       price: 90,
@@ -34,7 +34,7 @@ const data = {
       description: "A popular shirt",
     },
     {
-      name: "CAFÉ LATTE",
+      name: "Café Latte",
       category: "HOT CLASSICS",
       image: "/images/cafe-latte.jpeg",
       price: 90,
@@ -45,7 +45,7 @@ const data = {
       description: "Smart looking pants",
     },
     {
-      name: "BARRISTA",
+      name: "Barista",
       category: "COLD CLASSICS",
       image: "/images/barista.jpeg",
       price: 95,
@@ -56,7 +56,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "ICED AMERICANO",
+      name: "Iced Americano",
       category: "COLD CLASSICS",
       image: "/images/iced-americano.jpeg",
       price: 75,
@@ -67,7 +67,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "SMOOTHIES",
+      name: "Smoothies",
       category: "COLD CLASSICS",
       image: "/images/smoothie.png",
       price: 75,
@@ -78,7 +78,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "GINGER HONEY",
+      name: "Ginger Honey",
       category: "TEA",
       image: "/images/ginger-honey.png",
       price: 75,
@@ -89,7 +89,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "GREEN TEA",
+      name: "Green Tea",
       category: "TEA",
       image: "/images/green-tea.jpeg",
       price: 75,
@@ -100,7 +100,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "ASSAM TEA",
+      name: "Assam Tea",
       category: "TEA",
       image: "/images/assam-tea.jpeg",
       price: 75,
@@ -111,7 +111,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "JAMUN BANTA",
+      name: "Jamun Banta",
       category: "MOJITOS / LEMONADES",
       image: "/images/jamun-banta.jpeg",
       price: 75,
@@ -122,7 +122,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "FIZZY LEMONGRASS",
+      name: "Fizzy Lemon Grass",
       category: "MOJITOS / LEMONADES",
       image: "/images/ginger-lemongrass.jpeg",
       price: 75,
@@ -133,7 +133,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "GREEN APPLE LEMONADE",
+      name: "Green Apple Lemonade",
       category: "MOJITOS / LEMONADES",
       image: "/images/green-apple-lemonade.png",
       price: 75,
@@ -144,7 +144,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "CLASSIC MOJITO",
+      name: "Classic Mojito",
       category: "MOJITOS / LEMONADES",
       image: "/images/classic-mojito.jpeg",
       price: 75,
@@ -155,7 +155,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "PEACH ICED TEA",
+      name: "Peach Iced Tea",
       category: "ICED TEAS",
       image: "/images/peach-ice-tea.png",
       price: 75,
@@ -166,7 +166,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "LEMON ICED TEA",
+      name: "Lemon Iced Tea",
       category: "ICED TEAS",
       image: "/images/lemon-ice-tea.jpeg",
       price: 75,
