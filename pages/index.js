@@ -10,40 +10,33 @@ import {
   CardMedia,
   CardContent,
 } from "@mui/material";
+import Product from "../components/Product";
 
 export default function Home() {
+  const getHeader = () => (
+    <Typography variant="h2" className={"my-5"}>
+      Products
+    </Typography>
+  );
+  const getProducts = () => {
+    return (
+      <Grid container spacing={3}>
+        {data.products.map((product) => (
+          <Grid item md={4} key={product.name}>
+            <Product product={product} />
+          </Grid>
+        ))}
+      </Grid>
+    );
+  };
+
   return (
     <Layout>
       <div>
-        <Typography variant="h2" className={"my-5"}>
-          Products
-        </Typography>
-        <Grid container spacing={3}>
-          {data.products.map((product) => (
-            <Grid item md={4} key={product.name}>
-              <Card>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    image={product.image}
-                    title={product.name}
-                    height="200"
-                    width={"300"}
-                  ></CardMedia>
-                  <CardContent>
-                    <Typography>{product.name}</Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <Typography>${product.price}</Typography>
-                  <Button size="small" color="primary">
-                    Add to cart
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+        {/*Header section*/}
+        {getHeader()}
+        {/*List of products section*/}
+        {getProducts()}
       </div>
     </Layout>
   );
