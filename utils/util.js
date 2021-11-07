@@ -141,7 +141,6 @@ export const calculateTotalPrice = (products, cartItems) => {
       totalBill += product.price * count - totalDiscount;
     }
   }
-  debugger;
   if (individualItems.length) {
     for (let item of individualItems) {
       const { count, product } = item;
@@ -156,5 +155,10 @@ export const calculateTotalPrice = (products, cartItems) => {
   }
   totalBill = totalBill > 0 ? totalBill.toFixed(2) : totalBill;
   console.log("totalBill:", totalBill);
-  return totalBill;
+  return {
+    totalBill,
+    selectedCombos,
+    combosFromIndividualItems,
+    individualItems,
+  };
 };

@@ -20,6 +20,7 @@ import {
   List,
   ListItem,
 } from "@mui/material";
+import { useRouter } from "next/router";
 
 function CartScreen({ products }) {
   products = products || [];
@@ -27,6 +28,7 @@ function CartScreen({ products }) {
   const {
     cart: { cartItems },
   } = state;
+  const router = useRouter();
 
   let productItems = Object.keys(cartItems).reduce((acc, id) => {
     const product = products.find((p) => p.id === +id);
@@ -42,10 +44,19 @@ function CartScreen({ products }) {
 
   // calculateTotalPrice(products, cartItems);
 
+  const priceDetails = calculateTotalPrice(products, cartItems);
+
   const removeItemType = (id) => {
     dispatch({
       type: "CART_REMOVE_TYPE",
       payload: { id },
+    });
+  };
+
+  const checkoutHandler = (cartItems) => {
+    console.log("cartItems:", cartItems);
+    router.push({
+      pathname: "/order",
     });
   };
 
@@ -119,7 +130,7 @@ function CartScreen({ products }) {
                   <Typography variant="h4">
                     Subtotal (
                     {Object.values(cartItems).reduce((a, c) => a + c, 0)} items)
-                    : ${calculateTotalPrice(products, cartItems)}
+                    : {priceDetails.totalBill}
                   </Typography>
                 </ListItem>
                 <ListItem>
@@ -127,7 +138,7 @@ function CartScreen({ products }) {
                     variant="contained"
                     color="primary"
                     fullWidth
-                    onClick={() => calculateTotalPrice(products, cartItems)}
+                    onClick={() => checkoutHandler(cartItems)}
                   >
                     Check Out
                   </Button>
