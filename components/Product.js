@@ -52,7 +52,6 @@ const Product = ({ product }) => {
             </div>
           }
           title={product.name}
-          subheader="September 14, 2016"
         />
         <CardActionArea>
           <CardMedia

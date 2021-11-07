@@ -34,11 +34,11 @@ export default function CartScreen({ products }) {
     return acc;
   }, []);
   productItems = productItems.filter((item) => cartItems[item.id] > 0);
-  console.log("cartItems:", cartItems);
-  console.log("productItems:", productItems);
-  console.log("products:", products);
+  // console.log("cartItems:", cartItems);
+  // console.log("productItems:", productItems);
+  // console.log("products:", products);
 
-  calculateTotalPrice(products, cartItems);
+  // calculateTotalPrice(products, cartItems);
 
   const removeItemType = (id) => {
     dispatch({
@@ -117,12 +117,16 @@ export default function CartScreen({ products }) {
                   <Typography variant="h4">
                     Subtotal (
                     {Object.values(cartItems).reduce((a, c) => a + c, 0)} items)
-                    : $
-                    {productItems.reduce((a, c) => a + c.quantity * c.price, 0)}
+                    : ${calculateTotalPrice(products, cartItems)}
                   </Typography>
                 </ListItem>
                 <ListItem>
-                  <Button variant="contained" color="primary" fullWidth>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    onClick={() => calculateTotalPrice(products, cartItems)}
+                  >
                     Check Out
                   </Button>
                 </ListItem>
