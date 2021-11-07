@@ -100,7 +100,7 @@ function OrderScreen({ products }) {
                   <TableCell>{""}</TableCell>
                   <TableCell align="right">{""}</TableCell>
                   <TableCell align="right">
-                    {`Total: ${totalWithoutTax.toFixed(2)}`}
+                    {`Total(w/o tax): ${totalWithoutTax.toFixed(2)}`}
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -110,7 +110,7 @@ function OrderScreen({ products }) {
             <Card>
               <List>
                 <ListItem>
-                  <Typography variant="h6">{`Tax applied =  $${getTotalTax()}`}</Typography>
+                  <Typography variant="h8">{`Tax applied =  $${getTotalTax()}`}</Typography>
                 </ListItem>
                 <ListItem>
                   <Typography variant="h6">{`Final Bill =  $${getTotalBill()}`}</Typography>

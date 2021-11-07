@@ -8,10 +8,15 @@ const initialState = {
       ? JSON.parse(Cookies.get("cartItems"))
       : {},
   },
+  filter: "All",
 };
 
 function reducer(state, action) {
   switch (action.type) {
+    case "UPDATE_FILTER": {
+      const newFilter = action.payload;
+      return { ...state, filter: newFilter };
+    }
     case "CART_ADD_ITEM": {
       const newItem = action.payload;
       const { id } = newItem;
