@@ -4,6 +4,7 @@ import { Store } from "../utils/Store";
 import { calculateTotalPrice } from "../utils/util";
 import NextLink from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import {
   Grid,
   TableContainer,
@@ -19,7 +20,8 @@ import {
   List,
   ListItem,
 } from "@mui/material";
-export default function CartScreen({ products }) {
+
+function CartScreen({ products }) {
   products = products || [];
   const { state, dispatch } = useContext(Store);
   const {
@@ -148,3 +150,5 @@ export async function getServerSideProps() {
     },
   };
 }
+
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });

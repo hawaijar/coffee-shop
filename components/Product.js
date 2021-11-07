@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Badge,
   Button,
@@ -13,10 +13,11 @@ import {
 } from "@mui/material";
 import NextLink from "next/link";
 import AddDeleteButton from "./AddDeleteButton";
+import { Store } from "../utils/Store";
 
 const Product = ({ product }) => {
   const discount = product.discount;
-
+  const { dispatch } = useContext(Store);
   const getPrice = () => {
     let actualPrice = product.price;
     let discountedPrice;
@@ -67,7 +68,18 @@ const Product = ({ product }) => {
         </CardActionArea>
         <CardActions>
           {getPrice()}
-          <Button size="small" color="primary" className={"pl-2"}>
+          <Button
+            size="small"
+            color="primary"
+            className={"pl-2"}
+            onClick={() => {
+              // setItemCount(itemCount + 1);
+              dispatch({
+                type: "CART_ADD_ITEM",
+                payload: { ...product },
+              });
+            }}
+          >
             Add to cart
           </Button>
         </CardActions>
