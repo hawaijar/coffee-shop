@@ -25,13 +25,14 @@ export default function CartScreen({ products }) {
     cart: { cartItems },
   } = state;
 
-  const productItems = Object.keys(cartItems).reduce((acc, id) => {
+  let productItems = Object.keys(cartItems).reduce((acc, id) => {
     const product = products.find((p) => p.id === +id);
     if (product) {
       acc.push(product);
     }
     return acc;
   }, []);
+  productItems = productItems.filter((item) => cartItems[item.id] > 0);
   console.log("cartItems:", cartItems);
   console.log("productItems:", productItems);
   console.log("products:", products);
@@ -48,7 +49,7 @@ export default function CartScreen({ products }) {
       <Typography component="h3" variant="h3">
         Shopping Cart
       </Typography>
-      {Object.keys(cartItems).length === 0 ? (
+      {productItems.length === 0 ? (
         <div>
           Cart is empty. <NextLink href="/">Go shopping</NextLink>
         </div>
@@ -77,7 +78,7 @@ export default function CartScreen({ products }) {
                               alt={item.name}
                               width={50}
                               height={50}
-                            ></Image>
+                            />
                           </Link>
                         </NextLink>
                       </TableCell>

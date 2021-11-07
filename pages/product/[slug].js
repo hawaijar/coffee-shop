@@ -19,7 +19,7 @@ import AddDeleteButton from "../../components/AddDeleteButton";
 import { Store } from "../../utils/Store";
 
 export default function ProductScreen() {
-  const [itemCount, setItemCount] = useState(0);
+  // const [itemCount, setItemCount] = useState(0);
   const { state } = useContext(Store);
   const { cart } = state;
   const { cartItems } = cart;
@@ -33,8 +33,8 @@ export default function ProductScreen() {
   const { dispatch } = useContext(Store);
 
   const onClickCartHandler = () => {
-    setItemCount(itemCount + 1);
-    console.log("product:", product);
+    // setItemCount(itemCount + 1);
+    // console.log("product:", product);
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity: 1 } });
   };
 
@@ -58,7 +58,7 @@ export default function ProductScreen() {
             width={640}
             height={640}
             layout="responsive"
-          ></Image>
+          />
         </Grid>
         <Grid item md={3} xs={12}>
           <List>
@@ -132,7 +132,7 @@ export default function ProductScreen() {
                 ) : (
                   <AddDeleteButton
                     itemCount={alreadyAddedCount}
-                    setItemCount={setItemCount}
+                    // setItemCount={setItemCount}
                     product={product}
                   />
                 )}
