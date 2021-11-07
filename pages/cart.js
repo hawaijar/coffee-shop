@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Layout from "../components/Layout";
 import { Store } from "../utils/Store";
+import { calculateTotalPrice } from "../utils/util";
 import NextLink from "next/link";
 import Image from "next/image";
 import {
@@ -37,6 +38,8 @@ export default function CartScreen({ products }) {
   console.log("productItems:", productItems);
   console.log("products:", products);
 
+  calculateTotalPrice(products, cartItems);
+
   const removeItemType = (id) => {
     dispatch({
       type: "CART_REMOVE_TYPE",
@@ -63,7 +66,7 @@ export default function CartScreen({ products }) {
                     <TableCell>Image</TableCell>
                     <TableCell>Name</TableCell>
                     <TableCell align="right">Quantity</TableCell>
-                    <TableCell align="right">Price</TableCell>
+                    <TableCell align="right">Original Price</TableCell>
                     <TableCell align="right">Action</TableCell>
                   </TableRow>
                 </TableHead>

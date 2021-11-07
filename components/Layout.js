@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
             <div className={"flex-grow"} />
             <div className={"flex items-center"}>
               <NextLink href="/cart" passHref>
-                <Link>
+                <Link className={`hover:underline`}>
                   {Object.keys(cartItems).length > 0 ? (
                     <Badge color="secondary" badgeContent={totalItems}>
                       {"Cart"}
@@ -68,7 +68,7 @@ const Layout = ({ children }) => {
                 </Link>
               </NextLink>
               <NextLink href="/login" passHref>
-                <Link className={`hover:underline`}>Login</Link>
+                <Link className={`hover:underline pl-1`}>Login</Link>
               </NextLink>
             </div>
           </Toolbar>
