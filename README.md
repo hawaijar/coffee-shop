@@ -39,4 +39,4 @@ Clicking the *Checkout* link on the Shopping Cart page will display the final or
 ![main](public/screens/OrderSummary.png)
 
 Note: Discounts are calculated based on the given requirement that when there is an overlapping discounts happened, *only the highest one shall be selected*.
-E.g. if we select Bread, cappuccino, Scrambled Egg, only *Bread and cappuccino* will be given discount as they are giving the highest discount (40%) and Scrambled Egg will be individually charged.
+E.g. if we select Bread, cappuccino, Scrambled Egg, only *Bread and cappuccino* will be given discount as they are giving the highest discount (40%) as combo and Scrambled Egg will be individually charged.
