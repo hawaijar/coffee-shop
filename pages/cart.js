@@ -127,7 +127,7 @@ function CartScreen({ products }) {
             <Card>
               <List>
                 <ListItem>
-                  <Typography variant="h4">
+                  <Typography variant="h5">
                     Subtotal (
                     {Object.values(cartItems).reduce((a, c) => a + c, 0)} items)
                     : {priceDetails.totalBill}

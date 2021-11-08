@@ -12,23 +12,31 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Main page
+When we run the app, we'll be seeing all the products as shown below -
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+![main](public/screens/mainPage.jpg)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Menu List
+On the menubar is the **Menu** link and clicking on that will display all the categories of coffees available to be selected.
+They are acting as the filter to select a particular group of product items.
 
-## Learn More
+![main](public/screens/MenuList.png)
 
-To learn more about Next.js, take a look at the following resources:
+## Adding products on the Cart
+We can add a product (to the Cart) by clicking the  *ADD TO CART* link in each product.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![main](public/screens/ProductDetails.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Shopping Cart
+When we add products, the **Cart** menu will display a badge showing total count of selected products. Clicking on it will display the list of selected products. Clicking
 
-## Deploy on Vercel
+![main](public/screens/shoppingCart.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Order Summary
+Clicking the *Checkout* link on the Shopping Cart page will display the final order details of selected products. Clicking
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![main](public/screens/OrderSummary.png)
+
+Note: Discounts are calculated based on the given requirement that when there is an overlapping discounts happened, *only the highest one shall be selected*.
+E.g. if we select Bread, cappuccino, Scrambled Egg, only *Bread and cappuccino* will be given discount as they are giving the highest discount (40%) and Scrambled Egg will be individually charged.
