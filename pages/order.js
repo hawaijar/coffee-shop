@@ -1,10 +1,7 @@
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import { Store } from "../utils/Store";
-import { calculateTotalPrice } from "../utils/util";
 import {
-  Button,
   Card,
   Grid,
   List,
@@ -18,32 +15,18 @@ import {
 } from "@mui/material";
 import Layout from "../components/Layout";
 import Image from "next/image";
+import Billing from '../utils/biilling'
 
 function OrderScreen({ products }) {
   const { state } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
-  const priceDetails = calculateTotalPrice(products, cartItems);
 
-  console.log("priceDetails:", priceDetails);
-
-  console.log("cartItems:", cartItems);
+	const billing = new Billing(products,cartItems, 5.5);
 
   const { selectedCombos, combosFromIndividualItems, individualItems } =
-    priceDetails;
-
-  let totalWithoutTax = 0;
-
-  const getPriceAfterDiscount = (price, discount, count) => {
-    let singleDiscount = (discount / 100) * price;
-    if (discount > 0) {
-      singleDiscount = singleDiscount.toFixed(2);
-    }
-    let totalDiscount = singleDiscount * count;
-    totalWithoutTax += price * count - totalDiscount;
-    return `$${price * count - totalDiscount}`;
-  };
+		billing.getPriceDetails();
 
   const getItems = (items) => {
     if (items.length === 0) return null;
@@ -60,7 +43,7 @@ function OrderScreen({ products }) {
         </TableCell>
         <TableCell align="right">{item.count}</TableCell>
         <TableCell align="right">
-          {getPriceAfterDiscount(
+          {billing.getPriceAfterDiscount(
             item.product.price,
             item.product.discount,
             item.count
@@ -68,14 +51,6 @@ function OrderScreen({ products }) {
         </TableCell>
       </TableRow>
     ));
-  };
-
-  const getTotalTax = () => {
-    return ((5 / 100) * totalWithoutTax).toFixed(2);
-  };
-
-  const getTotalBill = () => {
-    return (+totalWithoutTax + +getTotalTax()).toFixed(2);
   };
 
   return (
@@ -100,7 +75,7 @@ function OrderScreen({ products }) {
                   <TableCell>{""}</TableCell>
                   <TableCell align="right">{""}</TableCell>
                   <TableCell align="right">
-                    {`Total(w/o tax): ${totalWithoutTax.toFixed(2)}`}
+                    {`Total(w/o tax): ${billing.getTotalWithoutTax().toFixed(2)}`}
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -110,10 +85,10 @@ function OrderScreen({ products }) {
             <Card>
               <List>
                 <ListItem>
-                  <Typography variant="h8">{`Tax applied =  $${getTotalTax()}`}</Typography>
+                  <Typography variant="h8">{`Tax applied =  $${billing.getTotalTax()}`}</Typography>
                 </ListItem>
                 <ListItem>
-                  <Typography variant="h6">{`Final Bill =  $${getTotalBill()}`}</Typography>
+                  <Typography variant="h6">{`Final Bill =  $${billing.getTotalBill()}`}</Typography>
                 </ListItem>
               </List>
             </Card>

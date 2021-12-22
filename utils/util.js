@@ -3,7 +3,6 @@ const difference = require("lodash.difference");
 const TAX = 5; // 5% tax
 
 export const calculateTotalPrice = (products, cartItems) => {
-  // debugger;
   if (Object.keys(cartItems).length === 0) return 0;
   // find (actual) combo/items
   const selectedCombos = Object.keys(cartItems).reduce((acc, id) => {
